@@ -6,6 +6,7 @@ build
 **/target
 **/*.rs.bk
 .idea/
+.history/
 
 # macOS Specific ignores
 # General

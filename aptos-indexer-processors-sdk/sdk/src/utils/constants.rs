@@ -5,8 +5,8 @@
 
 use once_cell::sync::Lazy;
 
-/// Type string for AptosCoin.
-pub const APTOS_COIN_TYPE_STR: &str = "0x1::aptos_coin::AptosCoin";
+/// Type string for LumioCoin.
+pub const lumio_coin_TYPE_STR: &str = "0x1::lumio_coin::LumioCoin";
 
 pub static APT_METADATA_ADDRESS_RAW: Lazy<[u8; 32]> = Lazy::new(|| {
     let mut addr = [0u8; 32];

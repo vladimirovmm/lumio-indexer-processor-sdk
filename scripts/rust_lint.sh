@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# This script runs linting for both the examples and aptos-indexer-processors-sdk directories
+# This script runs linting for both the examples and lumio-indexer-processors-sdk directories
 # It assumes you have cargo-sort installed. If not, you can install it with:
 # cargo install cargo-sort
 
@@ -30,7 +30,7 @@ run_lint() {
 }
 
 # Make sure we're in the root directory
-if [ ! -d "examples" ] || [ ! -d "aptos-indexer-processors-sdk" ]; then
+if [ ! -d "examples" ] || [ ! -d "lumio-indexer-processors-sdk" ]; then
     echo "Please run this script from the root directory of the project"
     exit 1
 fi
@@ -41,7 +41,7 @@ echo "Starting linting process..."
 echo "\nLinting examples directory..."
 run_lint "examples"
 
-echo "\nLinting aptos-indexer-processors-sdk directory..."
-run_lint "aptos-indexer-processors-sdk"
+echo "\nLinting lumio-indexer-processors-sdk directory..."
+run_lint "lumio-indexer-processors-sdk"
 
 echo "\nLinting completed successfully!" 

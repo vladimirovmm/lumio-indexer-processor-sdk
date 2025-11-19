@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Dependencies (aptos-indexer-processors-sdkl)
+      - name: Install Dependencies (lumio-indexer-processors-sdkl)
         run: |
           sudo apt update && sudo apt install libdw-dev
           cargo install cargo-sort
@@ -28,7 +28,7 @@ jobs:
           rustup toolchain install nightly
           rustup component add clippy --toolchain nightly
           rustup component add rustfmt --toolchain nightly
-        working-directory: aptos-indexer-processors-sdk
+        working-directory: lumio-indexer-processors-sdk
     
       - name: Install Dependencies (examples)
         run: |

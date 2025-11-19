@@ -22,7 +22,7 @@ rust-version = "1.78"
 lumio-indexer-processor-sdk = { path = "sdk" }
 lumio-indexer-transaction-stream = { path = "transaction-stream" }
 instrumented-channel = { path = "instrumented-channel" }
-aptos-moving-average = { path = "moving-average" }
+lumio-moving-average = { path = "moving-average" }
 sample = { path = "sample" }
 
 ahash = { version = "0.8.7", features = ["serde"] }
@@ -40,7 +40,7 @@ chrono = { version = "0.4.19", features = ["clock", "serde"] }
 clap = { version = "4.3.5", features = ["derive", "unstable-styles"] }
 # Do NOT enable the postgres feature here, it is conditionally enabled in a feature
 # block in the Cargo.toml file for the processor crate.
-# https://github.com/aptos-labs/aptos-indexer-processors/pull/325
+# https://github.com/aptos-labs/lumio-indexer-processors/pull/325
 diesel = { version = "=2.2.0", features = [
     "chrono",
     "postgres_backend",

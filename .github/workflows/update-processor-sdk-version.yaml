@@ -7,7 +7,7 @@ name: Update Processor SDK Version
     paths:
       # Be conservative and only run this workflow when the Cargo.toml file changes.
       # Reason: if SDK version is not updated, no change will be picked up by processors.
-      - aptos-indexer-processors-sdk/Cargo.toml
+      - lumio-indexer-processors-sdk/Cargo.toml
 
 permissions:
   contents: read
@@ -52,13 +52,13 @@ jobs:
       - name: Capture lumio-protos commit hash
         id: lumio_protos_commit_hash
         run: |
-          cd aptos-indexer-processors-sdk
+          cd lumio-indexer-processors-sdk
           lumio_protos_commit_hash=$(toml get Cargo.toml workspace.dependencies.lumio-protos.rev)
           echo "::set-output name=lumio_protos_commit_hash::${lumio_protos_commit_hash}"
       - name: Dispatch Event to processors Repo
         uses: peter-evans/repository-dispatch@v3.0.0
         with:
           token: ${{ steps.secrets.outputs.token }}
-          repository: 'aptos-labs/aptos-indexer-processors-v2'
+          repository: 'aptos-labs/lumio-indexer-processors-v2'
           event-type: 'sdk-dependency-update'
           client-payload: '{"commit_hash": "${{ github.sha }}", "branch_name": "${{ steps.commit_hash.outputs.branch_name }}", "lumio_protos_commit_hash": ${{ steps.lumio_protos_commit_hash.outputs.lumio_protos_commit_hash }}}'

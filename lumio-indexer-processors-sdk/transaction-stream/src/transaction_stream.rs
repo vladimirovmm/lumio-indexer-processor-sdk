@@ -3,13 +3,13 @@ use crate::{
     utils::{additional_headers::AdditionalHeaders, time::timestamp_to_iso},
 };
 use anyhow::{anyhow, Result};
-use aptos_moving_average::MovingAverage;
+use futures_util::StreamExt;
+use lumio_moving_average::MovingAverage;
 use lumio_protos::{
     indexer::v1::{raw_data_client::RawDataClient, GetTransactionsRequest, TransactionsResponse},
     transaction::v1::Transaction,
     util::timestamp::Timestamp,
 };
-use futures_util::StreamExt;
 use lumio_transaction_filter::BooleanTransactionFilter;
 use prost::Message;
 use sample::{sample, SampleRate};

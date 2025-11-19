@@ -22,17 +22,17 @@ jobs:
           cargo install cargo-sort
           rustup update
           rustup toolchain install nightly
-        working-directory: aptos-indexer-processors-sdk
+        working-directory: lumio-indexer-processors-sdk
 
       - name: Build with No Default Features
         run: cargo build --no-default-features
-        working-directory: aptos-indexer-processors-sdk
+        working-directory: lumio-indexer-processors-sdk
 
       - name: Run Tests
         id: tests
         continue-on-error: true  # Allow workflow to continue if tests fail
         run: cargo test
-        working-directory: aptos-indexer-processors-sdk
+        working-directory: lumio-indexer-processors-sdk
 
       - name: Notify Eco Infra Oncall about proto update failure
         if: |

@@ -51,7 +51,7 @@ jobs:
         run: |
           set -e
           toml set Cargo.toml workspace.dependencies.lumio-protos.rev ${{ github.event.inputs.commit_hash || github.event.client_payload.commit_hash }} > Cargo.tmp && mv Cargo.tmp Cargo.toml
-        working-directory: aptos-indexer-processors-sdk/
+        working-directory: lumio-indexer-processors-sdk/
     
       - name: Commit and Push Changes
         run: |
@@ -63,7 +63,7 @@ jobs:
            git push origin "$branch_name" --force
         env:
           GITHUB_TOKEN: ${{ steps.secrets.outputs.token }}
-        working-directory: aptos-indexer-processors-sdk/
+        working-directory: lumio-indexer-processors-sdk/
         
       - name: Check if PR Already Exists
         id: check_pr

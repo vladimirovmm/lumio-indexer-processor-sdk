@@ -118,13 +118,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e16d2d3311acee920a9eb8d33b8cbc1787ce4a264e85f964c2404b969bdcd487"
 
 [[package]]
-name = "aptos-moving-average"
-version = "0.1.0"
-dependencies = [
- "chrono",
-]
-
-[[package]]
 name = "arrayvec"
 version = "0.7.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1751,9 +1744,9 @@ name = "lumio-indexer-transaction-stream"
 version = "0.1.0"
 dependencies = [
  "anyhow",
- "aptos-moving-average",
  "chrono",
  "futures-util",
+ "lumio-moving-average",
  "lumio-protos",
  "lumio-transaction-filter",
  "once_cell",
@@ -1765,6 +1758,13 @@ dependencies = [
  "tonic",
  "tracing",
  "url",
+]
+
+[[package]]
+name = "lumio-moving-average"
+version = "0.1.0"
+dependencies = [
+ "chrono",
 ]
 
 [[package]]

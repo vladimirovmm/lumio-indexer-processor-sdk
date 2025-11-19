@@ -24,16 +24,16 @@ jobs:
         id: next-version
         run: |
           # Get the latest tag that matches our pattern
-          latest_tag=$(git tag -l "aptos-indexer-sdk-v*" | sort -V | tail -n 1)
+          latest_tag=$(git tag -l "lumio-indexer-sdk-v*" | sort -V | tail -n 1)
           
           if [ -z "$latest_tag" ]; then
             # If no existing tag, start with 1.0.0
-            echo "next_tag=aptos-indexer-sdk-v1.0.0" >> $GITHUB_OUTPUT
+            echo "next_tag=lumio-indexer-sdk-v1.0.0" >> $GITHUB_OUTPUT
             exit 0
           fi
           
           # Extract version numbers
-          version=$(echo $latest_tag | sed 's/aptos-indexer-sdk-v//')
+          version=$(echo $latest_tag | sed 's/lumio-indexer-sdk-v//')
           major=$(echo $version | cut -d. -f1)
           minor=$(echo $version | cut -d. -f2)
           patch=$(echo $version | cut -d. -f3)
@@ -46,9 +46,9 @@ jobs:
             new_version="${major}.$((minor + 1)).0"
           fi
           
-          echo "next_tag=aptos-indexer-sdk-v${new_version}" >> $GITHUB_OUTPUT
+          echo "next_tag=lumio-indexer-sdk-v${new_version}" >> $GITHUB_OUTPUT
           echo "Current version: ${latest_tag}"
-          echo "Next version will be: aptos-indexer-sdk-v${new_version}"
+          echo "Next version will be: lumio-indexer-sdk-v${new_version}"
 
       - name: Create and Push Tag
         run: |

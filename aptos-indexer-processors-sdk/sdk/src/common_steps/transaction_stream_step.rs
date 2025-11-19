@@ -4,11 +4,11 @@ use crate::{
     utils::errors::ProcessorError,
 };
 use anyhow::Result;
-use aptos_indexer_transaction_stream::{
+use lumio_protos::transaction::v1::Transaction;
+use async_trait::async_trait;
+use lumio_indexer_transaction_stream::{
     TransactionStream as TransactionStreamInternal, TransactionStreamConfig,
 };
-use aptos_protos::transaction::v1::Transaction;
-use async_trait::async_trait;
 use mockall::mock;
 use std::time::Duration;
 use tokio::sync::Mutex;

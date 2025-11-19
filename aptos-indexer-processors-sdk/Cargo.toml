@@ -15,21 +15,21 @@ edition = "2021"
 homepage = "https://aptoslabs.com"
 license = "Apache-2.0"
 publish = false
-repository = "https://github.com/aptos-labs/aptos-indexer-processor-sdk"
+repository = "https://github.com/aptos-labs/lumio-indexer-processor-sdk"
 rust-version = "1.78"
 
 [workspace.dependencies]
-aptos-indexer-processor-sdk = { path = "sdk" }
-aptos-indexer-transaction-stream = { path = "transaction-stream" }
+lumio-indexer-processor-sdk = { path = "sdk" }
+lumio-indexer-transaction-stream = { path = "transaction-stream" }
 instrumented-channel = { path = "instrumented-channel" }
 aptos-moving-average = { path = "moving-average" }
 sample = { path = "sample" }
 
 ahash = { version = "0.8.7", features = ["serde"] }
 anyhow = "1.0.98"
-aptos-protos = { git = "ssh://git@github.com/pontem-network/lumio-node.git", package = "lumio-protos" }
-aptos-system-utils = { git = "ssh://git@github.com/pontem-network/lumio-node.git", package = "lumio-system-utils" }
-aptos-transaction-filter = { git = "ssh://git@github.com/pontem-network/lumio-node.git", package = "lumio-transaction-filter" }
+lumio-protos = { git = "ssh://git@github.com/pontem-network/lumio-node.git" }
+lumio-system-utils = { git = "ssh://git@github.com/pontem-network/lumio-node.git" }
+lumio-transaction-filter = { git = "ssh://git@github.com/pontem-network/lumio-node.git" }
 async-trait = "0.1.80"
 autometrics = { version = "1.0.1", features = ["prometheus-exporter"] }
 axum = "0.7.5"

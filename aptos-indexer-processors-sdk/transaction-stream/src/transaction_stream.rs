@@ -4,13 +4,13 @@ use crate::{
 };
 use anyhow::{anyhow, Result};
 use aptos_moving_average::MovingAverage;
-use aptos_protos::{
+use lumio_protos::{
     indexer::v1::{raw_data_client::RawDataClient, GetTransactionsRequest, TransactionsResponse},
     transaction::v1::Transaction,
     util::timestamp::Timestamp,
 };
-use aptos_transaction_filter::BooleanTransactionFilter;
 use futures_util::StreamExt;
+use lumio_transaction_filter::BooleanTransactionFilter;
 use prost::Message;
 use sample::{sample, SampleRate};
 use std::time::Duration;

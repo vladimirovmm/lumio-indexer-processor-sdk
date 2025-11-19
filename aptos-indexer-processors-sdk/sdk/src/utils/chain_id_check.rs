@@ -1,6 +1,6 @@
 use super::errors::ProcessorError;
 use anyhow::Result;
-use aptos_indexer_transaction_stream::{TransactionStream, TransactionStreamConfig};
+use lumio_indexer_transaction_stream::{TransactionStream, TransactionStreamConfig};
 use async_trait::async_trait;
 use tracing::info;
 

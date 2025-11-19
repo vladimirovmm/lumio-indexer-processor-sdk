@@ -13,7 +13,7 @@ rust-version = { workspace = true }
 
 [dependencies]
 anyhow = { workspace = true }
-aptos-indexer-processor-sdk = { workspace = true }
+lumio-indexer-processor-sdk = { workspace = true }
 async-trait = { workspace = true }
 clap = { workspace = true }
 diesel = { workspace = true }

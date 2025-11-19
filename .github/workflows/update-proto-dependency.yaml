@@ -9,7 +9,7 @@ on:
         description: 'Commit hash to update proto to'
         required: true
       branch_name:
-        description: 'Branch name (without -update-aptos-protos suffix)'
+        description: 'Branch name (without -update-lumio-protos suffix)'
         required: true
         default: 'main'
 
@@ -50,16 +50,16 @@ jobs:
       - name: Update the dependency
         run: |
           set -e
-          toml set Cargo.toml workspace.dependencies.aptos-protos.rev ${{ github.event.inputs.commit_hash || github.event.client_payload.commit_hash }} > Cargo.tmp && mv Cargo.tmp Cargo.toml
+          toml set Cargo.toml workspace.dependencies.lumio-protos.rev ${{ github.event.inputs.commit_hash || github.event.client_payload.commit_hash }} > Cargo.tmp && mv Cargo.tmp Cargo.toml
         working-directory: aptos-indexer-processors-sdk/
     
       - name: Commit and Push Changes
         run: |
            set -e
-           branch_name="${{ github.event.inputs.branch_name || github.event.client_payload.branch_name }}-update-aptos-protos"
+           branch_name="${{ github.event.inputs.branch_name || github.event.client_payload.branch_name }}-update-lumio-protos"
            git checkout -b "$branch_name"
            git add Cargo.toml
-           git commit -m "Update aptos-protos to ${{ github.event.inputs.commit_hash || github.event.client_payload.commit_hash }}"
+           git commit -m "Update lumio-protos to ${{ github.event.inputs.commit_hash || github.event.client_payload.commit_hash }}"
            git push origin "$branch_name" --force
         env:
           GITHUB_TOKEN: ${{ steps.secrets.outputs.token }}
@@ -68,7 +68,7 @@ jobs:
       - name: Check if PR Already Exists
         id: check_pr
         run: |
-          branch_name="${{ github.event.inputs.branch_name || github.event.client_payload.branch_name }}-update-aptos-protos"
+          branch_name="${{ github.event.inputs.branch_name || github.event.client_payload.branch_name }}-update-lumio-protos"
           existing_pr=$(gh pr list --base main --head "$branch_name" --json number --jq '.[].number')
           if [ -n "$existing_pr" ]; then
             echo "::set-output name=if_pr_exists::true"
@@ -80,9 +80,9 @@ jobs:
       - name: Create Pull Request
         if: steps.check_pr.outputs.if_pr_exists == 'false'
         run: |
-          branch_name="${{ github.event.inputs.branch_name || github.event.client_payload.branch_name }}-update-aptos-protos"
-          gh pr create --title "Update aptos-protos to upstream branch ${{ github.event.client_payload.branch_name }}" \
-                       --body "This PR updates aptos-protos to new version." \
+          branch_name="${{ github.event.inputs.branch_name || github.event.client_payload.branch_name }}-update-lumio-protos"
+          gh pr create --title "Update lumio-protos to upstream branch ${{ github.event.client_payload.branch_name }}" \
+                       --body "This PR updates lumio-protos to new version." \
                        --base main \
                        --head "$branch_name" \
                        --label "indexer-sdk-update"

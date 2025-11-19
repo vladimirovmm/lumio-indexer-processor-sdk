@@ -5,12 +5,12 @@ use crate::{
     utils::step_metrics::init_step_metrics_registry,
 };
 use anyhow::{Context, Result};
-#[cfg(target_os = "linux")]
-use aptos_system_utils::profiling::start_cpu_profiling;
 use autometrics::settings::AutometricsSettings;
 use axum::{http::StatusCode, response::IntoResponse, routing::get, Router};
 use backtrace::Backtrace;
 use clap::Parser;
+#[cfg(target_os = "linux")]
+use lumio_system_utils::profiling::start_cpu_profiling;
 use prometheus_client::registry::Registry;
 use serde::{de::DeserializeOwned, Deserialize, Serialize};
 // TODO: remove deprecated lint when new clippy nightly is released

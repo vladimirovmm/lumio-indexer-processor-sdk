@@ -1,5 +1,5 @@
 [package]
-name = "aptos-indexer-processor-sdk"
+name = "lumio-indexer-processor-sdk"
 version = "0.1.0"
 
 # Workspace inherited keys
@@ -14,8 +14,8 @@ rust-version = { workspace = true }
 [dependencies]
 ahash = { workspace = true }
 anyhow = { workspace = true }
-aptos-indexer-transaction-stream = { workspace = true }
-aptos-protos = { workspace = true }
+lumio-indexer-transaction-stream = { workspace = true }
+lumio-protos = { workspace = true }
 async-trait = { workspace = true }
 autometrics = { workspace = true }
 axum = { workspace = true }
@@ -62,7 +62,7 @@ tracing-subscriber = { workspace = true }
 url = { workspace = true }
 
 [target.'cfg(target_os = "linux")'.dependencies]
-aptos-system-utils = { workspace = true }
+lumio-system-utils = { workspace = true }
 
 [features]
 postgres_partial = [

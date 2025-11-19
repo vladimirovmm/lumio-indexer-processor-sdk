@@ -1,4 +1,4 @@
-use aptos_indexer_transaction_stream::utils::time::{
+use lumio_indexer_transaction_stream::utils::time::{
     time_diff_since_pb_timestamp_in_secs, timestamp_to_unixtime,
 };
 
@@ -60,7 +60,7 @@ impl<T> PartialEq for TransactionContext<T> {
 pub struct TransactionMetadata {
     pub start_version: u64,
     pub end_version: u64,
-    pub start_transaction_timestamp: Option<aptos_protos::util::timestamp::Timestamp>,
-    pub end_transaction_timestamp: Option<aptos_protos::util::timestamp::Timestamp>,
+    pub start_transaction_timestamp: Option<lumio_protos::util::timestamp::Timestamp>,
+    pub end_transaction_timestamp: Option<lumio_protos::util::timestamp::Timestamp>,
     pub total_size_in_bytes: u64,
 }

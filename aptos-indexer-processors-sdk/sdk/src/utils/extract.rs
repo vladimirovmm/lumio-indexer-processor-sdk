@@ -7,14 +7,14 @@ use super::{
     convert::{deserialize_from_string, standardize_address, truncate_str},
     property_map::{PropertyMap, TokenObjectPropertyMap},
 };
-use aptos_protos::transaction::v1::{
+use bigdecimal::BigDecimal;
+use lumio_protos::transaction::v1::{
     multisig_transaction_payload::Payload as MultisigPayloadType,
     transaction_payload::{self, Payload as PayloadType},
     write_set::WriteSet as WriteSetType,
     EntryFunctionId, EntryFunctionPayload, MoveScriptBytecode, MoveType, ScriptPayload,
     TransactionPayload, UserTransactionRequest, WriteSet,
 };
-use bigdecimal::BigDecimal;
 use serde::{Deserialize, Deserializer, Serialize};
 use serde_json::Value;
 use sha2::Digest;

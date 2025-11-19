@@ -1,6 +1,6 @@
 use super::basic_processor_step::BasicProcessorStep;
 use crate::{
-    aptos_indexer_transaction_stream::TransactionStreamConfig,
+    lumio_indexer_transaction_stream::TransactionStreamConfig,
     builder::ProcessorBuilder,
     common_steps::{
         TransactionStreamStep, VersionTrackerStep, DEFAULT_UPDATE_PROCESSOR_STATUS_SECS,
@@ -23,7 +23,7 @@ use crate::{
     utils::{chain_id_check::check_or_update_chain_id, errors::ProcessorError},
 };
 use anyhow::Result;
-use aptos_protos::transaction::v1::Transaction;
+use lumio_protos::transaction::v1::Transaction;
 use clap::Parser;
 use diesel_migrations::EmbeddedMigrations;
 use serde::{Deserialize, Serialize};
